@@ -34,7 +34,7 @@ public class #ScriptName#Controller : BaseMVCController<#ScriptName#Model, I#Scr
             GetView().Get#ScriptName#Fail("没有数据",null);
             return null;
         }
-        GetView().Get#ScriptName#Success<#ScriptName#Bean>(null,action);
+        GetView().Get#ScriptName#Success<#ScriptName#Bean>(data,action);
         return data;
     }
 
