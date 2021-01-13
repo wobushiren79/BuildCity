@@ -7,7 +7,7 @@
 using UnityEngine;
 using UnityEditor;
 using System;
-using NUnit.Framework;
+
 using System.Collections.Generic;
 
 [Serializable]
@@ -36,6 +36,16 @@ public class SceneBuildBean : BaseBean
     public void AddListBuildData(BuildBaseBean buildData)
     {
         listBuildData.Add(buildData);
+    }
+
+    /// <summary>
+    /// ÒÆ³ýÊý¾Ý
+    /// </summary>
+    /// <param name="buildData"></param>
+    public void RemoveListBuildData(BuildBaseBean buildData)
+    {
+        if (listBuildData.Contains(buildData))
+            listBuildData.Remove(buildData);
     }
 
     /// <summary>

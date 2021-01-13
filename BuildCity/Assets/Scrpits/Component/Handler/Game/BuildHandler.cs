@@ -1,11 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BuildHandler : BaseHandler<BuildHandler, BuildManager>
 {
     public BuildForBuilding modelForBuilding;
     public BuildForFoundation modelForFoundation;
+
+    public BuildControl controlForBuild;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        controlForBuild = CptUtil.AddCpt<BuildControl>(gameObject);
+        controlForBuild.ChangeMode(BuildControl.BuildModeEnum.Build);
+    }
+
     public void InitBuild(SceneBuildBean sceneBuild)
     {
         CreateFoundation(sceneBuild);
@@ -78,7 +89,38 @@ public class BuildHandler : BaseHandler<BuildHandler, BuildManager>
 
         //增加数据
         GameDataHandler.Instance.manager.AddSceneListBuildData(buildBaseData);
+        manager.AddBuildBase(cptBuild);
+        //建筑动画
+        AnimForBuild(buildType, cptBuild);
         return cptBuild;
+    }
+
+    /// <summary>
+    /// 拆除建筑
+    /// </summary>
+    /// <param name="buildBase"></param>
+    public void DestroyBuildBase(BuildBase buildBase)
+    {
+        GameDataHandler.Instance.manager.RemoveSceneListBuildData(buildBase.buildBaseData);
+        manager.RemoveBuildBaes(buildBase);
+        DestroyImmediate(buildBase.gameObject);
+    }
+
+    /// <summary>
+    /// 建造动画
+    /// </summary>
+    /// <param name="buildType"></pa ram>
+    /// <param name="build"></param>
+    public void AnimForBuild(BuildTypeEnum buildType, BuildBase buildBase)
+    {
+        switch (buildType)
+        {
+            case BuildTypeEnum.Building:
+                buildBase.AnimForBuild();
+                break;
+            case BuildTypeEnum.Foundation:
+                break;
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -51,6 +51,16 @@ public class GameDataManager : BaseManager, ISceneBuildView
     {
         SceneBuildBean sceneBuild = GetSceneData();
         sceneBuild.AddListBuildData(buildData);
+    }
+
+    /// <summary>
+    /// 移除场景建造数据
+    /// </summary>
+    /// <param name="buildData"></param>
+    public void RemoveSceneListBuildData(BuildBaseBean buildData)
+    {
+        SceneBuildBean sceneBuild = GetSceneData();
+        sceneBuild.RemoveListBuildData(buildData);
     }
 
     #region 获取数据
