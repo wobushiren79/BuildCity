@@ -71,16 +71,12 @@ public class BuildControl : BaseMonoBehaviour
         BuildBase buildBase = hit.collider.GetComponent<BuildBase>();
         if (buildBase != null)
         {
-            //判断点击是否在被点击物体的上方
-            if (hit.point.y >= buildBase.transform.position.y)
+            //判断该点是否有建筑
+            Vector3 buildPosition = buildBase.transform.position + new Vector3(0, 1, 0);
+            if (!GameDataHandler.Instance.CheckHasBuild(buildPosition))
             {
-                //判断该点是否有建筑
-                Vector3 buildPosition = buildBase.transform.position + new Vector3(0, 1, 0);
-                if (!GameDataHandler.Instance.CheckHasBuild(buildPosition))
-                {
-                    timeForBuildDelay = 0.1f;
-                    BuildHandler.Instance.CreateBuildBase<BuildForBuilding>(BuildTypeEnum.Building, buildPosition);
-                }
+                timeForBuildDelay = 0.05f;
+                BuildHandler.Instance.CreateBuildBase<BuildForBuilding>(BuildTypeEnum.Building, buildPosition);
             }
         }
     }

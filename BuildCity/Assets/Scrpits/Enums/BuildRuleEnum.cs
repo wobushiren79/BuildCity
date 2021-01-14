@@ -120,6 +120,18 @@ public class BuildRuleEnumTool
             ruleTemp += 1;
         return (BuildRuleEnum)ruleTemp;
     }
+
+    public static void GetBuildRuleData(BuildRuleEnum buildRule, out int number, out bool up, out bool down, out bool left, out bool right, out bool before, out bool after)
+    {
+        int ruleTemp = (int)buildRule;
+        number = (ruleTemp % 10000000) / 1000000;
+        up = (ruleTemp % 1000000) / 100000 == 1 ? true : false;
+        down = (ruleTemp % 100000) / 10000 == 1 ? true : false;
+        left = (ruleTemp % 10000) / 1000 == 1 ? true : false;
+        right = (ruleTemp % 1000) / 100 == 1 ? true : false;
+        before = (ruleTemp % 100) / 10 == 1 ? true : false;
+        after = (ruleTemp % 10) == 1 ? true : false;
+    }
 }
 
 [Serializable]

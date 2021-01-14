@@ -92,6 +92,16 @@ public class BuildHandler : BaseHandler<BuildHandler, BuildManager>
         manager.AddBuildBase(cptBuild);
         //建筑动画
         AnimForBuild(buildType, cptBuild);
+
+        //获取周围方块
+        List<BuildBase> listAroundBuild = manager.GetAroundBuildBase(cptBuild);
+        //改变周围方块状态
+        for (int i = 0; i < listAroundBuild.Count; i++)
+        {
+            BuildBase itemBase = listAroundBuild[i];
+            itemBase.AutoCheckBuildRule();
+        }
+
         return cptBuild;
     }
 
@@ -101,9 +111,21 @@ public class BuildHandler : BaseHandler<BuildHandler, BuildManager>
     /// <param name="buildBase"></param>
     public void DestroyBuildBase(BuildBase buildBase)
     {
+        //获取周围方块
+        List<BuildBase> listAroundBuild = manager.GetAroundBuildBase(buildBase);
+
+        //移除数据
         GameDataHandler.Instance.manager.RemoveSceneListBuildData(buildBase.buildBaseData);
         manager.RemoveBuildBaes(buildBase);
         DestroyImmediate(buildBase.gameObject);
+
+        //改变周围方块状态
+        for (int i = 0; i < listAroundBuild.Count; i++)
+        {
+            BuildBase itemBase = listAroundBuild[i];
+            itemBase.AutoCheckBuildRule();
+        }
+
     }
 
     /// <summary>
