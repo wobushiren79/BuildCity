@@ -58,6 +58,7 @@ public class BuildTest : BaseMonoBehaviour
                 CreateBuildItem(centerPostion + new Vector3(0, 0, -1));
             if (after)
                 CreateBuildItem(centerPostion + new Vector3(0, 0, 1));
+            buildBase.AutoCheckBuildRule();
         }
     }
 
@@ -82,5 +83,6 @@ public class BuildTest : BaseMonoBehaviour
         {
             renderer.material.color = Color.black;
         }
+        BuildHandler.Instance.manager.AddBuildBase(buildBase);
     }
 }

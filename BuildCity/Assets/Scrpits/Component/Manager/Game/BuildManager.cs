@@ -44,6 +44,7 @@ public class BuildManager : BaseManager
         }
         GameObject obj = LoadAssetUtil.SyncLoadAsset<GameObject>(path + resName, resName);
         BuildBaseManager buildBaseManager = obj.GetComponent<BuildBaseManager>();
+        buildBaseManager.InitData();
         if (buildBaseManager)
             dicBuildBaseForBuilding.Add(resName, buildBaseManager);
     }

@@ -8,24 +8,30 @@ public class AssetBundlesEditor : Editor
     [MenuItem("Custom/AssetBundles/创建设置平台资源")]
     public static void BuildAssetBundleForBuildSetting()
     {
-        BuildAssetBundle(EditorUserBuildSettings.activeBuildTarget);
+        BuildAssetBundle(BuildAssetBundleOptions.UncompressedAssetBundle, EditorUserBuildSettings.activeBuildTarget);
 
     }
 
     [MenuItem("Custom/AssetBundles/创建安卓平台资源")]
     public static void BuildAssetBundleForAndroid()
     {
-        BuildAssetBundle(BuildTarget.Android);
+        BuildAssetBundle(BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.Android);
     }
 
-    protected static void BuildAssetBundle(BuildTarget buildTarget)
+    [MenuItem("Custom/AssetBundles/创建苹果平台资源")]
+    public static void BuildAssetBundleForIOS()
+    {
+        BuildAssetBundle(BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.iOS);
+    }
+
+    protected static void BuildAssetBundle(BuildAssetBundleOptions options, BuildTarget buildTarget)
     {
         string dir = "Assets/StreamingAssets";
         if (Directory.Exists(dir) == false)
         {
             Directory.CreateDirectory(dir);
         }
-        BuildPipeline.BuildAssetBundles(dir, BuildAssetBundleOptions.UncompressedAssetBundle, buildTarget);
+        BuildPipeline.BuildAssetBundles(dir, options, buildTarget);
         AssetDatabase.Refresh();
         Debug.Log("打包完成");
     }

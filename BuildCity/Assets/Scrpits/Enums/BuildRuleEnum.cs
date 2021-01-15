@@ -1,5 +1,7 @@
-﻿using RotaryHeart.Lib.SerializableDictionary;
+﻿using NUnit.Framework;
+using RotaryHeart.Lib.SerializableDictionary;
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -135,7 +137,7 @@ public class BuildRuleEnumTool
 }
 
 [Serializable]
-public class BuildRuleDictionary : SerializableDictionaryBase<BuildRuleEnum, GameObject>
+public class BuildRuleDictionary : SerializableDictionaryBase<BuildRuleEnum, BuildBaseModelBean>
 {
 
 }

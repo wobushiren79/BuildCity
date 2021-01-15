@@ -5,7 +5,18 @@ using UnityEngine;
 
 public class BuildBaseManager : BaseManager
 {
-    public BuildRuleDictionary dicBuildRule = new BuildRuleDictionary();
+    protected BuildRuleDictionary dicBuildRule = new BuildRuleDictionary();
+
+    public List<BuildBaseModelBean> listBuildRuleModel = new List<BuildBaseModelBean>();
+
+    public void InitData()
+    {
+        for (int i = 0; i < listBuildRuleModel.Count; i++)
+        {
+            BuildBaseModelBean itemData = listBuildRuleModel[i];
+            dicBuildRule.Add(itemData.buildRule, itemData);
+        }
+    }
 
     /// <summary>
     /// 获取建筑模型
@@ -14,20 +25,21 @@ public class BuildBaseManager : BaseManager
     /// <returns></returns>
     public GameObject GetBuildBaseModel(BuildRuleEnum buildRule)
     {
-        if (dicBuildRule.TryGetValue(buildRule, out GameObject obj))
+        if (dicBuildRule.TryGetValue(buildRule, out BuildBaseModelBean modelData))
         {
-            if (obj == null)
-                if (dicBuildRule.TryGetValue(BuildRuleEnum.Zero, out GameObject objZero))
-                {
-                    return objZero;
-                }
-            return obj;
-        }
-        else
-        {
-            if (dicBuildRule.TryGetValue(BuildRuleEnum.Zero, out GameObject objZero))
+            if (modelData != null)
             {
-                return objZero;
+                if (!CheckUtil.ListIsNull(modelData.listObjModel))
+                {
+                    return RandomUtil.GetRandomDataByList(modelData.listObjModel);
+                }
+            }
+        }
+        if (dicBuildRule.TryGetValue(BuildRuleEnum.Zero, out BuildBaseModelBean modelDataZero))
+        {
+            if (!CheckUtil.ListIsNull(modelDataZero.listObjModel))
+            {
+                return modelDataZero.listObjModel[0];
             }
         }
         return null;
@@ -42,7 +54,9 @@ public class BuildBaseManager : BaseManager
         for (int i = 0; i < listData.Count; i++)
         {
             BuildRuleEnum itemRule = listData[i];
-            dicBuildRule.Add(itemRule, null);
+            BuildBaseModelBean buildBaseModel = new BuildBaseModelBean();
+            buildBaseModel.buildRule = itemRule;
+            listBuildRuleModel.Add(buildBaseModel);
         }
     }
 
@@ -51,7 +65,6 @@ public class BuildBaseManager : BaseManager
     /// </summary>
     public void CleanData()
     {
-        dicBuildRule.Clear();
-        dicBuildRule = new BuildRuleDictionary();
+        listBuildRuleModel.Clear();
     }
 }

@@ -16,7 +16,7 @@ public class BuildBaseEditor : Editor
         }
         if (EditorUI.GUIButton("保存"))
         {
-            AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(target);
         }
         if (EditorUI.GUIButton("清空"))
         {
