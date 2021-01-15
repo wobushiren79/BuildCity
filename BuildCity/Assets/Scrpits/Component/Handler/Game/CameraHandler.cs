@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
 {
     protected Vector3 sceneCenterPosition = Vector3.zero;
-
+    protected float speedForZoom = 10;
     /// <summary>
     /// 初始化摄像头
     /// </summary>
@@ -26,4 +26,16 @@ public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
         Camera camera = manager.GetMainCamera();
         camera.transform.RotateAround(sceneCenterPosition, new Vector3(0, 1, 0), direction * Time.deltaTime * 30);
     }
+
+    /// <summary>
+    /// 缩放镜头
+    /// </summary>
+    /// <param name="size"></param>
+    public void ZoomCamera(int direction)
+    {
+        Camera camera = manager.GetMainCamera();
+        float zoomSize = speedForZoom * direction * Time.deltaTime + camera.fieldOfView;
+        manager.SetCameraFieldOfView(zoomSize);
+    }
+
 }

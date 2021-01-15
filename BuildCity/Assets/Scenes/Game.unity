@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildMode: 0
   timeForBuildDelay: 0
+  timeForDelayTouch: 0
 --- !u!1 &987773827
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +608,11 @@ PrefabInstance:
     - target: {fileID: 8183801199149707995, guid: b96b9c55088959f41b984c17ba8ae7ca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183801199387729788, guid: b96b9c55088959f41b984c17ba8ae7ca,
+        type: 3}
+      propertyPath: orthographic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8183801199387729788, guid: b96b9c55088959f41b984c17ba8ae7ca,

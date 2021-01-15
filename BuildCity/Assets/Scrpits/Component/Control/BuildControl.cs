@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildControl : BaseMonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BuildControl : BaseMonoBehaviour
 
     //建造延迟
     public float timeForBuildDelay = 0;
+    public float timeForDelayTouch = 0;
 
     private void Update()
     {
@@ -44,19 +46,42 @@ public class BuildControl : BaseMonoBehaviour
 
     public void HandleForBuild()
     {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            //点击到了UI
+            if (CheckUtil.IsPointerUI())
+                return;
+            timeForDelayTouch = 0.2f;
+            CheckAndBuild();
+        }
         if (Input.GetMouseButton(0))
         {
-            CheckAndBuild();
+            //点击到了UI
+            if (CheckUtil.IsPointerUI())
+                return;
+            if (timeForDelayTouch <= 0)
+            {
+                CheckAndBuild();
+            }
+        }
+        if (timeForDelayTouch > 0)
+        {
+            timeForDelayTouch -= Time.deltaTime;
         }
     }
 
     public void HandleForDemolition()
-    {
+    {        
         if (Input.GetMouseButton(0))
         {
+            //点击到了UI
+            if (CheckUtil.IsPointerUI())
+                return;
             CheckAndDemolition();
         }
     }
+
 
     /// <summary>
     /// 检测并且修建
@@ -73,9 +98,9 @@ public class BuildControl : BaseMonoBehaviour
         {
             //判断该点是否有建筑
             Vector3 buildPosition = buildBase.transform.position + new Vector3(0, 1, 0);
-            if (!GameDataHandler.Instance.CheckHasBuild(buildPosition))
+            if (!GameDataHandler.Instance.CheckHasBuild(buildPosition) && !GameDataHandler.Instance.CheckMoreThanHigh(buildPosition))
             {
-                timeForBuildDelay = 0.05f;
+                timeForBuildDelay = 0;
                 BuildHandler.Instance.CreateBuildBase<BuildForBuilding>(BuildTypeEnum.Building, buildPosition);
             }
         }
@@ -95,4 +120,5 @@ public class BuildControl : BaseMonoBehaviour
             BuildHandler.Instance.DestroyBuildBase(buildBase);
         }
     }
+
 }

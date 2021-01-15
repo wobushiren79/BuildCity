@@ -5,6 +5,9 @@ public class UIGameStart : BaseUIComponent, UIViewForCameraMove.ICallBack
 {
     public UIViewForCameraMove ui_BtLeft;
     public UIViewForCameraMove ui_BtRight;
+    public UIViewForCameraMove ui_BtZoomIn;
+    public UIViewForCameraMove ui_BtZoomOut;
+
     public Toggle ui_CbDemolition;
 
     private void Start()
@@ -13,6 +16,10 @@ public class UIGameStart : BaseUIComponent, UIViewForCameraMove.ICallBack
             ui_BtLeft.SetCallBack(this);
         if (ui_BtRight)
             ui_BtRight.SetCallBack(this);
+        if (ui_BtZoomIn)
+            ui_BtZoomIn.SetCallBack(this);
+        if (ui_BtZoomOut)
+            ui_BtZoomOut.SetCallBack(this);
         if (ui_CbDemolition)
             ui_CbDemolition.onValueChanged.AddListener(OnClickForDemolition);
     }
@@ -37,6 +44,14 @@ public class UIGameStart : BaseUIComponent, UIViewForCameraMove.ICallBack
         else if (uiViewForCamera == ui_BtRight)
         {
             CameraHandler.Instance.RotateCameraAround(1);
+        }
+        else if (uiViewForCamera == ui_BtZoomIn)
+        {
+            CameraHandler.Instance.ZoomCamera(-1);
+        }
+        else if (uiViewForCamera == ui_BtZoomOut)
+        {
+            CameraHandler.Instance.ZoomCamera(1);
         }
     }
     #endregion

@@ -5,22 +5,30 @@ using UnityEngine;
 public class AssetBundlesEditor : Editor
 {
 
-    [MenuItem("Custom/AssetBundles/BuildAssetBundle")]
-    public static void BuildAssetBundle()
+    [MenuItem("Custom/AssetBundles/创建设置平台资源")]
+    public static void BuildAssetBundleForBuildSetting()
     {
+        BuildAssetBundle(EditorUserBuildSettings.activeBuildTarget);
 
-        //根据BuildSetting里面所激活的平台进行打包 设置过AssetBundleName的都会进行打包
+    }
+
+    [MenuItem("Custom/AssetBundles/创建安卓平台资源")]
+    public static void BuildAssetBundleForAndroid()
+    {
+        BuildAssetBundle(BuildTarget.Android);
+    }
+
+    protected static void BuildAssetBundle(BuildTarget buildTarget)
+    {
         string dir = "Assets/StreamingAssets";
         if (Directory.Exists(dir) == false)
         {
             Directory.CreateDirectory(dir);
         }
-        BuildPipeline.BuildAssetBundles(dir, BuildAssetBundleOptions.UncompressedAssetBundle, EditorUserBuildSettings.activeBuildTarget);
+        BuildPipeline.BuildAssetBundles(dir, BuildAssetBundleOptions.UncompressedAssetBundle, buildTarget);
         AssetDatabase.Refresh();
         Debug.Log("打包完成");
-
     }
-
 
     /// <summary>
     /// 清除之前设置过的AssetBundleName，避免产生不必要的资源也打包
