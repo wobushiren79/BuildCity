@@ -1,10 +1,13 @@
 ﻿using UnityEditor;
 using UnityEngine;
-
+using DG.Tweening;
 public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
 {
     protected Vector3 sceneCenterPosition = Vector3.zero;
-    protected float speedForZoom = 10;
+    protected float speedForZoom = 5;
+    protected float speedForMove = 5;
+    protected float maxAroundY = 70;
+    protected float minAroundY = 20;
     /// <summary>
     /// 初始化摄像头
     /// </summary>
@@ -21,21 +24,42 @@ public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
     /// 围绕场景中心点旋转摄像头
     /// </summary>
     /// <param name="direction"></param>
-    public void RotateCameraAround(int direction)
+    public void RotateCameraAroundXZ(int direction)
+    {
+        RotateCameraAroundXZ((float)direction * 50);
+    }
+    public void RotateCameraAroundXZ(float rotateOffset)
     {
         Camera camera = manager.GetMainCamera();
-        camera.transform.RotateAround(sceneCenterPosition, new Vector3(0, 1, 0), direction * Time.deltaTime * 30);
+        camera.transform.RotateAround(sceneCenterPosition, Vector3.up, rotateOffset * Time.deltaTime * speedForMove);
     }
 
+    public void RotateCameraAroundY(int direction)
+    {
+        RotateCameraAroundY((float)direction * 50);
+    }
+    public void RotateCameraAroundY(float rotateOffset)
+    {
+        Camera camera = manager.GetMainCamera();
+        Vector3 eulerAngles = camera.transform.eulerAngles;
+
+        if (rotateOffset > 0 && eulerAngles.x >= maxAroundY)
+            return;
+        if (rotateOffset < 0 && eulerAngles.x <= minAroundY)
+            return;
+        camera.transform.RotateAround(sceneCenterPosition, camera.transform.right, rotateOffset * Time.deltaTime * speedForMove);
+    }
     /// <summary>
     /// 缩放镜头
     /// </summary>
     /// <param name="size"></param>
     public void ZoomCamera(int direction)
     {
-        Camera camera = manager.GetMainCamera();
-        float zoomSize = speedForZoom * direction * Time.deltaTime + camera.fieldOfView;
-        manager.SetCameraFieldOfView(zoomSize);
+        ZoomCamera(direction);
     }
-
+    public void ZoomCamera(float zoomOffset)
+    {
+        Camera camera = manager.GetMainCamera();
+        manager.SetCameraFieldOfView(zoomOffset * Time.deltaTime * speedForZoom + camera.fieldOfView);
+    }
 }

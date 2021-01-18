@@ -109,6 +109,7 @@ public class BaseUIManager : BaseManager
             BaseUIComponent itemUI = uiList[i];
             if (itemUI.name.Contains(uiName))
             {
+                uiComponent = itemUI;
                 itemUI.OpenUI();
                 hasData = true;
             }

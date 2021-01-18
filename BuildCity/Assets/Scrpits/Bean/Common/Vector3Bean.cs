@@ -3,7 +3,7 @@ using UnityEditor;
 using System;
 
 [Serializable]
-public class Vector3Bean
+public class Vector3Bean 
 {
     public float x;
     public float y;
@@ -15,7 +15,7 @@ public class Vector3Bean
         this.y = vector.y;
         this.z = vector.z;
     }
-    public Vector3Bean(float x, float y)
+    public Vector3Bean(float x,float y)
     {
         this.x = x;
         this.y = y;
@@ -26,11 +26,11 @@ public class Vector3Bean
     {
         this.x = x;
         this.y = y;
-        this.z = z;
+        this.z =z;
     }
 
     public Vector3 GetVector3()
     {
-        return new Vector3(x,y,z);
+        return TypeConversionUtil.Vector3BeanToVector3(this);
     }
 }

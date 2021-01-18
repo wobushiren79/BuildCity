@@ -4,14 +4,8 @@ using UnityEngine.EventSystems;
 
 public class BuildControl : BaseMonoBehaviour
 {
-    public enum BuildModeEnum
-    {
-        Null,
-        Build,
-        Demolition,
-    }
 
-    public BuildModeEnum buildMode = BuildModeEnum.Null;
+    public BuildControlModeEnum buildMode = BuildControlModeEnum.Null;
 
     //建造延迟
     public float timeForBuildDelay = 0;
@@ -19,11 +13,11 @@ public class BuildControl : BaseMonoBehaviour
 
     private void Update()
     {
-        if (buildMode == BuildModeEnum.Build)
+        if (buildMode == BuildControlModeEnum.Build)
         {
-            HandleForBuild();
+            HandleForBuild(); 
         }
-        else if (buildMode == BuildModeEnum.Demolition)
+        else if (buildMode == BuildControlModeEnum.Demolition)
         {
             HandleForDemolition();
         }
@@ -33,13 +27,15 @@ public class BuildControl : BaseMonoBehaviour
         }
         if (timeForBuildDelay > 0)
             timeForBuildDelay -= Time.deltaTime;
+        if (timeForDelayTouch > 0)
+            timeForDelayTouch -= Time.deltaTime;
     }
 
     /// <summary>
     /// 改变模式
     /// </summary>
     /// <param name="buildMode"></param>
-    public void ChangeMode(BuildModeEnum buildMode)
+    public void ChangeMode(BuildControlModeEnum buildMode)
     {
         this.buildMode = buildMode;
     }
@@ -60,23 +56,29 @@ public class BuildControl : BaseMonoBehaviour
             //点击到了UI
             if (CheckUtil.IsPointerUI())
                 return;
-            if (timeForDelayTouch <= 0)
-            {
-                CheckAndBuild();
-            }
+            if (timeForDelayTouch > 0)
+                return;
+            CheckAndBuild();
         }
-        if (timeForDelayTouch > 0)
-        {
-            timeForDelayTouch -= Time.deltaTime;
-        }
+
     }
 
     public void HandleForDemolition()
-    {        
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            //点击到了UI
+            if (CheckUtil.IsPointerUI())
+                return;
+            timeForDelayTouch = 0.2f;
+            CheckAndDemolition();
+        }
         if (Input.GetMouseButton(0))
         {
             //点击到了UI
             if (CheckUtil.IsPointerUI())
+                return;
+            if (timeForDelayTouch > 0)
                 return;
             CheckAndDemolition();
         }
@@ -96,12 +98,39 @@ public class BuildControl : BaseMonoBehaviour
         BuildBase buildBase = hit.collider.GetComponent<BuildBase>();
         if (buildBase != null)
         {
+            Vector3 hitPosition = hit.point;
+            Vector3 offsetPosition = new Vector3(0, 0, 0);
+            Vector3 buildPosition = buildBase.transform.position;
+            if (hitPosition.x == buildPosition.x + 0.5f)
+            {
+                offsetPosition = new Vector3(1, 0, 0);
+            }
+            else if (hitPosition.x == buildPosition.x - 0.5f)
+            {
+                offsetPosition = new Vector3(-1, 0, 0);
+            }
+            else if (hitPosition.y == buildPosition.y + 0.5f)
+            {
+                offsetPosition = new Vector3(0, 1, 0);
+            }
+            else if (hitPosition.y == buildPosition.y - 0.5f)
+            {
+                offsetPosition = new Vector3(0, -1, 0);
+            }
+            else if (hitPosition.z == buildPosition.z + 0.5f)
+            {
+                offsetPosition = new Vector3(0, 0, 1);
+            }
+            else if (hitPosition.z == buildPosition.z - 0.5f)
+            {
+                offsetPosition = new Vector3(0, 0, -1);
+            }
             //判断该点是否有建筑
-            Vector3 buildPosition = buildBase.transform.position + new Vector3(0, 1, 0);
-            if (!GameDataHandler.Instance.CheckHasBuild(buildPosition) && !GameDataHandler.Instance.CheckMoreThanHigh(buildPosition))
+            Vector3 newBuildPosition = buildPosition + offsetPosition;
+            if (!GameDataHandler.Instance.CheckHasBuild(newBuildPosition) && !GameDataHandler.Instance.CheckBorder(newBuildPosition))
             {
                 timeForBuildDelay = 0;
-                BuildHandler.Instance.CreateBuildBase<BuildForBuilding>(BuildTypeEnum.Building, buildPosition);
+                BuildHandler.Instance.CreateBuildBase<BuildForBuilding>(BuildTypeEnum.Building, newBuildPosition);
             }
         }
     }

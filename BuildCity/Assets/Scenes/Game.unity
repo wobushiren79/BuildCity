@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objMirror: {fileID: 1286632769}
+  sizeX: 10
+  sizeY: 10
+  sizeZ: 10
 --- !u!1 &828427190
 GameObject:
   m_ObjectHideFlags: 0

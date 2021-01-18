@@ -16,20 +16,25 @@ public class GameDataHandler : BaseHandler<GameDataHandler, GameDataManager>
     }
 
     /// <summary>
-    /// 检测是否超过高度
+    /// 检测是否超过边界
     /// </summary>
     /// <param name="buildPosition"></param>
     /// <returns></returns>
-    public bool CheckMoreThanHigh(Vector3 buildPosition)
+    public bool CheckBorder(Vector3 buildPosition)
     {
         SceneBuildBean sceneBuild = manager.GetSceneData();
-        if (buildPosition.y > sceneBuild.sceneSizeY)
-        {
+        if (buildPosition.x >= sceneBuild.sceneSizeX)
             return true;
-        }
-        else
-        {
-            return false;
-        }
+        if (buildPosition.x < 0)
+            return true;
+        if (buildPosition.y >= sceneBuild.sceneSizeY)
+            return true;
+        if (buildPosition.y < 0)
+            return true;
+        if (buildPosition.z >= sceneBuild.sceneSizeZ)
+            return true;
+        if (buildPosition.z < 0)
+            return true;
+        return false;
     }
 }

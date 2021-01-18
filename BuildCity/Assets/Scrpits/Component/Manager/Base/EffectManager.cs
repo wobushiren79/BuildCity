@@ -5,14 +5,13 @@ using UnityEngine;
 public class EffectManager : BaseManager
 {
     public Dictionary<string, GameObject> listEffect = new Dictionary<string, GameObject>();
-    protected string resUrl = "Effect/";
 
-    public GameObject CreateEffect(string name)
+    public GameObject CreateEffect(GameObject objContainer, string name)
     {
         GameObject objModel = null;
         if (listEffect.TryGetValue(name, out objModel))
         {
-            
+
         }
         else
         {
@@ -20,13 +19,16 @@ public class EffectManager : BaseManager
         }
         if (objModel == null)
             return null;
-        GameObject objEffect = Instantiate(gameObject, objModel);
+        if (objContainer == null)
+            objContainer = gameObject;
+        GameObject objEffect = Instantiate(objContainer, objModel);
         return objEffect;
     }
 
     private GameObject CreatEffictModel(string name)
     {
-        GameObject objEffictModel = Resources.Load<GameObject>(resUrl + name);
+        //GameObject objEffictModel = Resources.Load<GameObject>(resUrl + name);
+        GameObject objEffictModel = LoadAssetUtil.SyncLoadAsset<GameObject>("effect/effect", name);
         objEffictModel.name = name;
         listEffect.Add(name, objEffictModel);
         return objEffictModel;

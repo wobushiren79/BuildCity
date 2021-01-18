@@ -14,11 +14,12 @@ public class BuildHandler : BaseHandler<BuildHandler, BuildManager>
     {
         base.Awake();
         controlForBuild = CptUtil.AddCpt<BuildControl>(gameObject);
-        controlForBuild.ChangeMode(BuildControl.BuildModeEnum.Build);
+        controlForBuild.ChangeMode(BuildControlModeEnum.Build);
     }
 
     public void InitBuild(SceneBuildBean sceneBuild)
     {
+        manager.ClearData();
         CreateFoundation(sceneBuild);
     }
 

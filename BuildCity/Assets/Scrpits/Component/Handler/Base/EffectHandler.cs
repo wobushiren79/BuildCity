@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class EffectHandler : BaseHandler<EffectHandler,EffectManager>
+public class EffectHandler : BaseHandler<EffectHandler, EffectManager>
 {
 
     /// <summary>
@@ -11,11 +11,11 @@ public class EffectHandler : BaseHandler<EffectHandler,EffectManager>
     /// </summary>
     /// <param name="name"></param>
     /// <param name="effectPosition"></param>
-    public void PlayEffect(string name, Vector3 effectPosition,float delayTime)
+    public GameObject PlayEffect(GameObject objContainer, string name, Vector3 effectPosition, float delayTime)
     {
-        GameObject objEffect = manager.CreateEffect(name);
+        GameObject objEffect = manager.CreateEffect(objContainer,name);
         if (objEffect == null)
-            return;
+            return objEffect;
         objEffect.transform.position = effectPosition;
         ParticleSystem[] listParticleSystem = objEffect.GetComponentsInChildren<ParticleSystem>();
         for (int i = 0; i < listParticleSystem.Length; i++)
@@ -26,12 +26,22 @@ public class EffectHandler : BaseHandler<EffectHandler,EffectManager>
             //psMain.stopAction = ParticleSystemStopAction.Callback;
             particleSystem.Play();
         }
-        StartCoroutine(CoroutineForDelayDestroy(objEffect,delayTime));
+        if (delayTime <= 0)
+        {
+            return objEffect;
+        }
+        StartCoroutine(CoroutineForDelayDestroy(objEffect, delayTime));
+        return objEffect;
     }
 
-    public void PlayEffect(string name, Vector3 effectPosition)
+    public GameObject PlayEffect(string name, Vector3 effectPosition, float delayTime)
     {
-        PlayEffect(name, effectPosition, 5);
+        return PlayEffect(null, name, effectPosition, delayTime);
+    }
+
+    public GameObject PlayEffect(string name, Vector3 effectPosition)
+    {
+        return PlayEffect(name, effectPosition, 5);
     }
 
     public IEnumerator CoroutineForDelayDestroy(GameObject objEffect, float delayTime)
