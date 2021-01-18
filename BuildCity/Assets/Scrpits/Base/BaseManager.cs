@@ -3,8 +3,91 @@ using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using UnityEngine.U2D;
+using RotaryHeart.Lib.SerializableDictionary;
+
 public class BaseManager : BaseMonoBehaviour
 {
+    protected T GetModel<T>(Dictionary<string, T> listModel, string assetBundlePath, string objName) where T : Object
+    {
+        if (name == null)
+            return null;
+        if (listModel.TryGetValue(name, out T value))
+        {
+            return value;
+        }
+
+        T anim = LoadAssetUtil.SyncLoadAsset<T>(assetBundlePath, objName);
+        if (anim != null)
+        {
+            listModel.Add(name, anim);
+        }
+        return anim;
+    }
+    protected T GetModel<T>(SerializableDictionaryBase<string, T> listModel, string assetBundlePath, string objName) where T : Object
+    {
+        if (name == null)
+            return null;
+        if (listModel.TryGetValue(name, out T value))
+        {
+            return value;
+        }
+
+        T anim = LoadAssetUtil.SyncLoadAsset<T>(assetBundlePath, objName);
+        if (anim != null)
+        {
+            listModel.Add(name, anim);
+        }
+        return anim;
+    }
+
+    protected Sprite GetSpriteByName(IconBeanDictionary dicIcon, ref SpriteAtlas spriteAtlas, string atlasName, string assetBundlePath, string objName)
+    {
+        if (name == null)
+            return null;
+        //从字典获取sprite
+        if (dicIcon.TryGetValue(name, out Sprite value))
+        {
+            return value;
+        }
+        //如果字典没有 尝试从atlas获取sprite
+        if (spriteAtlas != null)
+        {
+            Sprite itemSprite = GetSpriteByName(name, spriteAtlas);
+            if (itemSprite != null)
+                dicIcon.Add(name, itemSprite);
+            return itemSprite;
+        }
+        //如果没有atlas 先加载atlas
+        spriteAtlas = LoadAssetUtil.SyncLoadAsset<SpriteAtlas>(assetBundlePath, atlasName);
+        //加载成功后在读取一次
+        if (spriteAtlas != null)
+            return GetSpriteByName(dicIcon, ref spriteAtlas, atlasName, assetBundlePath, objName);
+        return null;
+    }
+    protected Sprite GetSpriteByName(Dictionary<string, Sprite> dicIcon, ref SpriteAtlas spriteAtlas, string atlasName, string assetBundlePath, string objName)
+    {
+        if (name == null)
+            return null;
+        //从字典获取sprite
+        if (dicIcon.TryGetValue(name, out Sprite value))
+        {
+            return value;
+        }
+        //如果字典没有 尝试从atlas获取sprite
+        if (spriteAtlas != null)
+        {
+            Sprite itemSprite = GetSpriteByName(name, spriteAtlas);
+            if (itemSprite != null)
+                dicIcon.Add(name, itemSprite);
+            return itemSprite;
+        }
+        //如果没有atlas 先加载atlas
+        spriteAtlas = LoadAssetUtil.SyncLoadAsset<SpriteAtlas>(assetBundlePath, atlasName);
+        //加载成功后在读取一次
+        if (spriteAtlas != null)
+            return GetSpriteByName(dicIcon, ref spriteAtlas, atlasName, assetBundlePath, objName);
+        return null;
+    }
 
     /// <summary>
     /// 获取OBJ模型
