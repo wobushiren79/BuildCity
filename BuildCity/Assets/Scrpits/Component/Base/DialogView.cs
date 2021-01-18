@@ -22,13 +22,12 @@ public class DialogView : BaseMonoBehaviour
     public DialogBean dialogData;
 
     protected float timeDelayDelete;
-    public DialogManager manager_Dialog;
 
     protected bool isSubmitDestroy = true;
 
     public virtual void Awake()
     {
-        AutoLinkManager();
+
     }
 
     public virtual void Start()
@@ -46,7 +45,7 @@ public class DialogView : BaseMonoBehaviour
 
     public virtual void OnDestroy()
     {
-        manager_Dialog.RemoveDialog(this);
+        DialogHandler.Instance.manager.RemoveDialog(this);
     }
 
     public virtual void InitData()

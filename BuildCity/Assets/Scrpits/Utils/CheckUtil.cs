@@ -95,7 +95,7 @@ public class CheckUtil {
         //点击到了UI
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            if(Input.touchCount > 0)
+            if (Input.touchCount > 0)
             {
                 int fingerId = Input.GetTouch(0).fingerId;
                 if (EventSystem.current.IsPointerOverGameObject(fingerId))
@@ -109,4 +109,5 @@ public class CheckUtil {
         }
         return false;
     }
+
 }

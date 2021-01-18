@@ -125,4 +125,17 @@ public class BuildManager : BaseManager
         }
         return null;
     }
+
+    /// <summary>
+    /// 清除数据
+    /// </summary>
+    public void ClearData()
+    {
+        foreach (var itemData in dicBuildBase)
+        {
+            GameObject objItem = itemData.Value.gameObject;
+            DestroyImmediate(objItem);
+        }
+        dicBuildBase.Clear();
+    }
 }
