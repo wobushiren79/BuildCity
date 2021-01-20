@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.PlayerLoop;
 
 public class CameraControl : BaseMonoBehaviour
 {
@@ -15,8 +16,7 @@ public class CameraControl : BaseMonoBehaviour
     protected int maxAngleForVertical = 315;
     protected int mixAngleForVertical = 0;
 
-
-    private void Update()
+    public void Update()
     {
         //没有触摸
         if (Input.touchCount <= 0)
@@ -27,9 +27,7 @@ public class CameraControl : BaseMonoBehaviour
         HandleForScale();
         //HandleForMove(true, true);
         HandleForRotation(true, true);
-
     }
-
 
     public void HandleForScale()
     {

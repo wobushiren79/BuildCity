@@ -365,6 +365,21 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 10.49
       objectReference: {fileID: 0}
+    - target: {fileID: 1194941323642013226, guid: a88a16860fb4ad54eae803c6713a04d1,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194941323642013226, guid: a88a16860fb4ad54eae803c6713a04d1,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.83845407
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194941323642013226, guid: a88a16860fb4ad54eae803c6713a04d1,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.5727127
+      objectReference: {fileID: 0}
     - target: {fileID: 1194941323642013227, guid: a88a16860fb4ad54eae803c6713a04d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -399,6 +414,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.16619943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194941324830476248, guid: a88a16860fb4ad54eae803c6713a04d1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194941324830476248, guid: a88a16860fb4ad54eae803c6713a04d1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1194941325187278761, guid: a88a16860fb4ad54eae803c6713a04d1,
         type: 3}
@@ -612,6 +637,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183801199387729778, guid: b96b9c55088959f41b984c17ba8ae7ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8183801199387729788, guid: b96b9c55088959f41b984c17ba8ae7ca,
         type: 3}

@@ -36,7 +36,7 @@ public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
 
     public void RotateCameraAroundY(int direction)
     {
-        RotateCameraAroundY((float)direction * 50);
+        RotateCameraAroundY((float)direction);
     }
     public void RotateCameraAroundY(float rotateOffset)
     {
@@ -55,7 +55,7 @@ public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
     /// <param name="size"></param>
     public void ZoomCamera(int direction)
     {
-        ZoomCamera(direction);
+        ZoomCamera((float)direction);
     }
     public void ZoomCamera(float zoomOffset)
     {
