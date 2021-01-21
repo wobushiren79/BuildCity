@@ -23,12 +23,37 @@ public class BuildBaseManager : BaseManager
     /// </summary>
     /// <param name="buildRule"></param>
     /// <returns></returns>
-    public GameObject GetBuildBaseModel(BuildRuleEnum buildRule)
+    public GameObject GetBuildBaseModel(List<BuildBase> listAroundBuildBase, BuildBase centerBuildBase, BuildRuleEnum buildRule)
     {
         if (dicBuildRule.TryGetValue(buildRule, out BuildBaseModelBean modelData))
         {
             if (modelData != null)
             {
+                if (!CheckUtil.ListIsNull(listAroundBuildBase))
+                {
+                    //是否有地面方块
+                    bool hasGround = false;
+                    BuildRuleEnum centerBuildRule = centerBuildBase.buildBaseData.GetBuildRule();
+                    //检测周围方块
+                    for (int i = 0; i < listAroundBuildBase.Count; i++)
+                    {
+                        BuildBase itemBuildBase = listAroundBuildBase[i];
+                        //检测是否下面有砖块，并且砖块为地基
+                        if (BuildRuleEnumTool.CheckHasDown(centerBuildRule)
+                            &&( itemBuildBase.buildBaseData.GetBuildType()== BuildTypeEnum.Foundation || itemBuildBase.buildBaseData.GetBuildType() == BuildTypeEnum.Ground))
+                        {
+                            hasGround = true;
+                        }
+                    }
+                    //如果有地面方块，则使用地基层
+                    if (hasGround)
+                    {
+                        if (!CheckUtil.ListIsNull(modelData.listBaseModel))
+                        {
+                            return RandomUtil.GetRandomDataByList(modelData.listBaseModel);
+                        }
+                    }
+                }
                 if (!CheckUtil.ListIsNull(modelData.listObjModel))
                 {
                     return RandomUtil.GetRandomDataByList(modelData.listObjModel);

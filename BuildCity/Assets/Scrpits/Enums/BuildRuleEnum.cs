@@ -133,6 +133,17 @@ public class BuildRuleEnumTool
         before = (ruleTemp % 100) / 10 == 1 ? true : false;
         after = (ruleTemp % 10) == 1 ? true : false;
     }
+
+    /// <summary>
+    /// 检测是否有下面
+    /// </summary>
+    /// <param name="buildRule"></param>
+    /// <returns></returns>
+    public static bool CheckHasDown(BuildRuleEnum buildRule)
+    {
+        int ruleTemp = (int)buildRule;
+        return (ruleTemp % 100000) / 10000 == 1 ? true : false;
+    }
 }
 
 [Serializable]

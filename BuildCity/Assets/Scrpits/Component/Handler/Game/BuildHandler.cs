@@ -34,28 +34,28 @@ public class BuildHandler : BaseHandler<BuildHandler, BuildManager>
             for (int z = 0; z < sceneBuild.sceneSizeZ; z++)
             {
                 BuildForFoundation buildFoundation = CreateBuildBase<BuildForFoundation>(BuildTypeEnum.Foundation, new Vector3(x, -1, z));
-                if (x % 2 == 0)
-                {
-                    if (z % 2 == 0)
-                    {
-                        buildFoundation.SetFoundationColor(Color.white);
-                    }
-                    else
-                    {
-                        buildFoundation.SetFoundationColor(Color.black);
-                    }
-                }
-                else
-                {
-                    if (z % 2 == 0)
-                    {
-                        buildFoundation.SetFoundationColor(Color.black);
-                    }
-                    else
-                    {
-                        buildFoundation.SetFoundationColor(Color.white);
-                    }
-                }
+                //if (x % 2 == 0)
+                //{
+                //    if (z % 2 == 0)
+                //    {
+                //        buildFoundation.SetFoundationColor(Color.white);
+                //    }
+                //    else
+                //    {
+                //        buildFoundation.SetFoundationColor(Color.black);
+                //    }
+                //}
+                //else
+                //{
+                //    if (z % 2 == 0)
+                //    {
+                //        buildFoundation.SetFoundationColor(Color.black);
+                //    }
+                //    else
+                //    {
+                //        buildFoundation.SetFoundationColor(Color.white);
+                //    }
+                //}
             }
         }
     }

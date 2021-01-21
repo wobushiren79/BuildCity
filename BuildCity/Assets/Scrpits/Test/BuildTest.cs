@@ -30,7 +30,7 @@ public class BuildTest : BaseMonoBehaviour
         for (int i = 0; i < ruleList.Count; i++)
         {
             BuildRuleEnum itemRule = ruleList[i];
-            GameObject objModel = BuildHandler.Instance.manager.GetBuildBaseModel(BuildTypeEnum.Building, modelName, itemRule);
+            GameObject objModel = BuildHandler.Instance.manager.GetBuildBaseModel(null, itemRule, modelName);
             GameObject objBuild= Instantiate(gameObject, modelBuilding.gameObject);
             BuildBase buildBase= objBuild.GetComponent<BuildBase>();
 

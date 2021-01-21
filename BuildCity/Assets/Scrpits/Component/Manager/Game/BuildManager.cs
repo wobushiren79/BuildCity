@@ -15,11 +15,12 @@ public class BuildManager : BaseManager
     /// <param name="buildTypeEnum"></param>
     /// <param name="name"></param>
     /// <param name="buildRule"></param>
-    public GameObject GetBuildBaseModel(BuildTypeEnum buildTypeEnum,string name,BuildRuleEnum buildRule)
+    public GameObject GetBuildBaseModel(BuildBase centerBuildBase, BuildRuleEnum buildRule, string name)
     {
         if (dicBuildBaseForBuilding.TryGetValue(name, out BuildBaseManager buildBaseManager))
         {
-           return buildBaseManager.GetBuildBaseModel(buildRule);
+            List<BuildBase> listAroundBuildBase = GetAroundBuildBase(centerBuildBase);
+            return buildBaseManager.GetBuildBaseModel(listAroundBuildBase, centerBuildBase, buildRule);
         }
         return null;
     }
@@ -56,6 +57,8 @@ public class BuildManager : BaseManager
     public List<BuildBase> GetAroundBuildBase(BuildBase centerBuildBase)
     {
         List<BuildBase> listData = new List<BuildBase>();
+        if (centerBuildBase == null)
+            return listData;
         Vector3 centerPosition = centerBuildBase.buildBaseData.buildPosition.GetVector3();
         listData = GetBuildBaseByPosition(listData, centerPosition + new Vector3(1, 0, 0));
         listData = GetBuildBaseByPosition(listData, centerPosition + new Vector3(-1, 0, 0));

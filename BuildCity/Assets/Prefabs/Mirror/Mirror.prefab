@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1194941323642013227}
   - component: {fileID: 1194941323642013226}
-  - component: {fileID: 1194941323642013229}
-  - component: {fileID: 1194941323642013228}
+  - component: {fileID: 1049377999292680761}
+  - component: {fileID: 69341606866795565}
   m_Layer: 0
   m_Name: MirrorCamera
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194941323642013224}
-  m_LocalRotation: {x: -0.5513081, y: -0.11316024, z: 0.16619943, w: 0.809711}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 4.5, y: -10.5, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -40,7 +40,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194941323642013224}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -58,7 +58,7 @@ Camera:
     height: 1
   near clip plane: 10.49
   far clip plane: 1000
-  field of view: 49.550095
+  field of view: 66.72246
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -66,7 +66,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: d04402d2d8eb3094380c5839229d31e1, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -76,7 +76,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1194941323642013229
+--- !u!114 &1049377999292680761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,26 +85,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1194941323642013224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d02c837399c3cf47bb660dc3651ff85, type: 3}
+  m_Script: {fileID: 11500000, guid: d31f93e447eac7b45971505a2891c813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mirrorPlane: {fileID: 1194941324830476228}
---- !u!114 &1194941323642013228
-MonoBehaviour:
+  MirrorObject: {fileID: 1194941324830476228}
+  VRMode: 0
+--- !u!45 &69341606866795565
+Skybox:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194941323642013224}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01d5d4e265ac9934da22382cdf944c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mirrorPlane: {fileID: 1194941324830476228}
-  estimateViewFrustum: 1
-  setNearClipPlane: 1
-  nearClipDistanceOffset: -0.01
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1194941324830476228
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +111,7 @@ GameObject:
   - component: {fileID: 1194941324830476231}
   - component: {fileID: 1194941324830476230}
   - component: {fileID: 1194941324830476229}
+  - component: {fileID: 4036933262119804193}
   m_Layer: 0
   m_Name: MirrorPlane
   m_TagString: Untagged
@@ -164,7 +159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f615b98c92eb747488ea4f2f96b43468, type: 2}
+  - {fileID: 2100000, guid: 232c0653700ee46418c8a4a6f0402d92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,6 +194,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4036933262119804193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194941324830476228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a68502eb355794680af8e3cae39702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1194941325187278761
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194941325187278765}
+  - component: {fileID: 7496548173704391658}
   m_Layer: 0
   m_Name: Mirror
   m_TagString: Untagged
@@ -231,3 +239,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7496548173704391658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194941325187278761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b7fc7cdbba2b4489915a8923a46f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaximumPerPixelLights: 4
+  TextureSize: 768
+  ClipPlaneOffset: 10
+  FarClipPlane: 1000
+  ReflectLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  AddFlareLayer: 0
+  NormalIsForward: 1
+  AspectRatio: 0
+  MirrorRecursion: 0
