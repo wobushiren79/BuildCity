@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Colr/Master Shader Local Space" {
+Shader "Color/MasterShaderLocalSpace" {
 
 	Properties {
 		_MainTex("Texture", 2D) = "white" {}

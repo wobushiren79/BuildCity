@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: chunse04
-  m_Shader: {fileID: 4800000, guid: ff0547bbf290457498a5d14802079cc7, type: 3}
+  m_Shader: {fileID: 4800000, guid: bc3d9a3be2794a3439da0fbcd5b3ab49, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

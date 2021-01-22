@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1875001670
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3c19399416008d9092f85a8e3fa9af78
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0ac8a849038e5964bca4133726bf895b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80987cb7712ae0d429934a0f1e290309, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Art/Shader/Fog_1.shader
+- Assets/Art/Shader/FlagShader_1.shader
+- Assets/Art/Shader/FlagShader_2.shader
+- Assets/Prefabs/Build/Building/def.prefab
+- Assets/Art/Shader/MasterShaderLocalSpace.shader
+Dependencies: []

@@ -31,7 +31,8 @@ public class BuildTest : BaseMonoBehaviour
         {
             BuildRuleEnum itemRule = ruleList[i];
             GameObject objModel = BuildHandler.Instance.manager.GetBuildBaseModel(null, itemRule, modelName);
-            GameObject objBuild= Instantiate(gameObject, modelBuilding.gameObject);
+            GameObject objBuild = Instantiate(gameObject, modelBuilding.gameObject);
+
             BuildBase buildBase= objBuild.GetComponent<BuildBase>();
 
             BuildBaseBean buildBaseData = new BuildBaseBean();

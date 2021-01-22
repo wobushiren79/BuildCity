@@ -1,0 +1,293 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &691796217532351489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8059442074885888278}
+  - component: {fileID: 1022509484192299710}
+  m_Layer: 0
+  m_Name: def
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8059442074885888278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691796217532351489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022509484192299710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691796217532351489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80987cb7712ae0d429934a0f1e290309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listBuildRuleModel:
+  - buildRule: 0
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 1000001
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4435699543915608230, guid: b7c002149d1f2c44ba6e907fcd20b695, type: 3}
+  - buildRule: 1000010
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 2716599586099669322, guid: 8544c0131a48414419fc68e2e126a9d4, type: 3}
+  - buildRule: 1000100
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 3580757325746586203, guid: ccb3b3ae0326c22469da25af5dcfd5ef, type: 3}
+  - buildRule: 1001000
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 7852560903052871407, guid: 594bcd7b0b8c27445b651d0aa151849c, type: 3}
+  - buildRule: 1010000
+    listBaseModel:
+    - {fileID: 1463224670243179614, guid: d9f763694479c0d4fb181d616444eb83, type: 3}
+    - {fileID: 5953105436374205428, guid: 8171850cde3edc24da8b5b458025f3eb, type: 3}
+    listObjModel:
+    - {fileID: 8018359717710731285, guid: db22802800aeab6488beaefd72fb76eb, type: 3}
+  - buildRule: 1100000
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 2000011
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5039705333469659933, guid: f92f0dd47e7efbc42a8b1b9a9a5c866f, type: 3}
+    - {fileID: 3876323019033228350, guid: dce4bfe0a12405540bd0d4dbbad2b46b, type: 3}
+  - buildRule: 2000101
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 2000110
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 2001001
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 2001010
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 2001100
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4081615563536317179, guid: 9b9f29afc9c467e4db2859e69994250a, type: 3}
+  - buildRule: 2010001
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 6166172250080616600, guid: 20465a1087d209d4eb4c14fb03cc6299, type: 3}
+    - {fileID: 1915527387673211431, guid: 888564ed072c8324e95102fa553227c0, type: 3}
+  - buildRule: 2010010
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 6485231609707178379, guid: c044a6cf0517efb47b67e719880700df, type: 3}
+    - {fileID: 965680722594986472, guid: 0bc670c5d33f1fc4485e6c6c1f4885db, type: 3}
+  - buildRule: 2010100
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 7068443096430346195, guid: 1ee99cb96e9633145ae8a664bc36153e, type: 3}
+    - {fileID: 4063902593469104882, guid: 53fb44f3e73c80346beabab73980584c, type: 3}
+  - buildRule: 2011000
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 7601488378513672520, guid: 00bf4ac04e67ff447a91bfe3ed7c32db, type: 3}
+    - {fileID: 3453809616195938338, guid: c12cc46537e35ec40b23dbfa677cac70, type: 3}
+  - buildRule: 2100001
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 2100010
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 2100100
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 2101000
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 2110000
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 3493425969586792595, guid: 87d966bc0eaf61748b2b25d4fd880968, type: 3}
+    - {fileID: 1855208145325528522, guid: 181d7ef026b05924fa7649760bbb84b7, type: 3}
+  - buildRule: 3000111
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4081615563536317179, guid: 9b9f29afc9c467e4db2859e69994250a, type: 3}
+  - buildRule: 3001011
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4081615563536317179, guid: 9b9f29afc9c467e4db2859e69994250a, type: 3}
+  - buildRule: 3001101
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4081615563536317179, guid: 9b9f29afc9c467e4db2859e69994250a, type: 3}
+  - buildRule: 3001110
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4081615563536317179, guid: 9b9f29afc9c467e4db2859e69994250a, type: 3}
+  - buildRule: 3010011
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 1081608313093175460, guid: e4d1809cc0ee1c14686afb488be1de3b, type: 3}
+  - buildRule: 3010101
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 9198045945570397225, guid: 9d4524359c842df409b28142356de2b3, type: 3}
+  - buildRule: 3010110
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 1562248301636839923, guid: c1e36322cbea0e04b9f37d64332bee98, type: 3}
+  - buildRule: 3011001
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 1662933078192214026, guid: 7649dcb781a38684da461539c42bcce4, type: 3}
+  - buildRule: 3011010
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 2519447161255454732, guid: a6ebba9b255da32458657dc5acdc6122, type: 3}
+  - buildRule: 3011100
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 8588395870383031418, guid: 1175b8bae45e1e2459598794acc262ec, type: 3}
+  - buildRule: 3100011
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 3100101
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 3100110
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 3101001
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 3101010
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 3101100
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 3110001
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 3493425969586792595, guid: 87d966bc0eaf61748b2b25d4fd880968, type: 3}
+    - {fileID: 1855208145325528522, guid: 181d7ef026b05924fa7649760bbb84b7, type: 3}
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 3110010
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 3493425969586792595, guid: 87d966bc0eaf61748b2b25d4fd880968, type: 3}
+    - {fileID: 1855208145325528522, guid: 181d7ef026b05924fa7649760bbb84b7, type: 3}
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 3110100
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 3493425969586792595, guid: 87d966bc0eaf61748b2b25d4fd880968, type: 3}
+    - {fileID: 1855208145325528522, guid: 181d7ef026b05924fa7649760bbb84b7, type: 3}
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 3111000
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 3493425969586792595, guid: 87d966bc0eaf61748b2b25d4fd880968, type: 3}
+    - {fileID: 1855208145325528522, guid: 181d7ef026b05924fa7649760bbb84b7, type: 3}
+    - {fileID: 5504367138320733229, guid: d22717837ba809141919e57f352474d8, type: 3}
+  - buildRule: 4001111
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4081615563536317179, guid: 9b9f29afc9c467e4db2859e69994250a, type: 3}
+  - buildRule: 4010111
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 1749994596251952551, guid: ec7916ec3d928a244b4eac809797a0ac, type: 3}
+  - buildRule: 4011011
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 5846800146898158398, guid: a559d41f8705e034e9f67f6dcbe815f8, type: 3}
+  - buildRule: 4011101
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 936331617626089851, guid: 319fe14a84031c94997680ac8c6c7c20, type: 3}
+  - buildRule: 4011110
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 8673227867449476945, guid: f88435a57c2476a488080f98eac1abe2, type: 3}
+  - buildRule: 4100111
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4101011
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4101101
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4101110
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4110011
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4110101
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4110110
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4111001
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4111010
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 4111100
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 5011111
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 4317853282854948195, guid: aa3aefbd451a25342b46e62e3d125904, type: 3}
+  - buildRule: 5101111
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 5110111
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 5111011
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 5111101
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 5111110
+    listBaseModel: []
+    listObjModel: []
+  - buildRule: 6111111
+    listBaseModel: []
+    listObjModel:
+    - {fileID: 238569159838256920, guid: 9c3e5086b092d8d4d85316b7e7a45126, type: 3}
