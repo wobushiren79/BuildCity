@@ -9,7 +9,6 @@ public class AssetBundlesEditor : Editor
     public static void BuildAssetBundleForBuildSetting()
     {
         BuildAssetBundle(BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.StandaloneWindows64);
-
     }
 
     [MenuItem("Custom/AssetBundles/创建安卓平台资源")]

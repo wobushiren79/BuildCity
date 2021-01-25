@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 706213612
+CRC: 785720988
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4a605e13d9c4c25d9891257ad7b5464c
+    Hash: a0389a51b3068c74b439f234465dffc8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0ac8a849038e5964bca4133726bf895b
+    Hash: 3d44d74ea60c55dd9da5b684f819b3e3
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,10 +27,14 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 80987cb7712ae0d429934a0f1e290309, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 200
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Art/Shader/Fog_1.shader
 - Assets/Art/Shader/FlagShader_1.shader
 - Assets/Art/Shader/FlagShader_2.shader
 - Assets/Prefabs/Build/Building/def.prefab
 - Assets/Art/Shader/MasterShaderLocalSpace.shader
+- Assets/Art/Shader/ShaderVariants.shadervariants
 Dependencies: []

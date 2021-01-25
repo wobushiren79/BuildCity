@@ -24,7 +24,7 @@ public class CameraControl : BaseMonoBehaviour
         RayUtil.RayToScreenPoint(out bool isCollider, out RaycastHit hit);
         if (isCollider && hit.collider.GetComponent<BuildBase>())
             return;
-        HandleForScale();
+        //HandleForScale();
         //HandleForMove(true, true);
         HandleForRotation(true, true);
     }

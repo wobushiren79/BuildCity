@@ -25,7 +25,7 @@ public class DialogHandler : BaseUIHandler<DialogHandler, DialogManager>
             LogUtil.LogError("没有找到指定Dialog：" + dialogName);
             return null;
         }
-          
+
         GameObject objDialog = Instantiate(gameObject, objDialogModel);
         if (objDialog)
         {

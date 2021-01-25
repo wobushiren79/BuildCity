@@ -5,4 +5,5 @@ public enum DialogEnum
 {
     Normal = 0,
     Text = 1,
+    Setting=2,
 }

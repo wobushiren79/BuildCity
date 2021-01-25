@@ -25,4 +25,10 @@ public class CameraManager : BaseManager
             fieldOfView = minOrthographicSize;
         mainCamera.fieldOfView = fieldOfView;
     }
+
+    public void SetCameraFieldOfViewForPro(float pro)
+    {
+        float fieldOfView = (maxOrthographicSize - minOrthographicSize) * pro + minOrthographicSize;
+        SetCameraFieldOfView(fieldOfView);
+    }
 }

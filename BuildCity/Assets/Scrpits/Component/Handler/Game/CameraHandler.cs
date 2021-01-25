@@ -18,6 +18,9 @@ public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
         sceneCenterPosition = new Vector3((sceneBuild.sceneSizeX - 1) / 2f, 0, (sceneBuild.sceneSizeZ - 1) / 2f);
         camera.transform.position = new Vector3((sceneBuild.sceneSizeX - 1) / 2f, sceneBuild.sceneSizeY, -(sceneBuild.sceneSizeZ - 1));
         camera.transform.LookAt(sceneCenterPosition);
+
+        camera.transform.RotateAround(sceneCenterPosition, Vector3.up, 45);
+
     }
 
     /// <summary>
@@ -61,5 +64,9 @@ public class CameraHandler : BaseHandler<CameraHandler, CameraManager>
     {
         Camera camera = manager.GetMainCamera();
         manager.SetCameraFieldOfView(zoomOffset * Time.deltaTime * speedForZoom + camera.fieldOfView);
+    }
+    public void ZoomCameraForPro(float pro)
+    {
+        manager.SetCameraFieldOfViewForPro(pro);
     }
 }

@@ -435,6 +435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mirror
       objectReference: {fileID: 0}
+    - target: {fileID: 1194941325187278761, guid: a88a16860fb4ad54eae803c6713a04d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1194941325187278765, guid: a88a16860fb4ad54eae803c6713a04d1,
         type: 3}
       propertyPath: m_RootOrder
@@ -503,21 +508,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 27195880517805456, guid: 0c1e5e4e0a085b742adc2c17f16ed952,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 27195880517805456, guid: 0c1e5e4e0a085b742adc2c17f16ed952,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 27195880517805456, guid: 0c1e5e4e0a085b742adc2c17f16ed952,
-        type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 0.297
       objectReference: {fileID: 0}
     - target: {fileID: 850949242354727782, guid: 0c1e5e4e0a085b742adc2c17f16ed952,
         type: 3}
@@ -647,11 +637,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3354303950255440977, guid: ed0181ef1e760e74887a57db69629f15,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3354303950255440977, guid: ed0181ef1e760e74887a57db69629f15,
         type: 3}

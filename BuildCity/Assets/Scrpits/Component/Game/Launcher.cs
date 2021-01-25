@@ -21,7 +21,7 @@ public class Launcher : BaseMonoBehaviour
         //初始化摄像头
         CameraHandler.Instance.InitCamera();
         //打开UI
-        UIHandler.Instance.manager.OpenUI(UIEnum.GameStart);
+        UIHandler.Instance.manager.OpenUI<UIGameStart>(UIEnum.GameStart);
 
         //设置镜面位置
         Vector3 mirrorPosition = new Vector3((sceneBuild.sceneSizeX - 1) / 2f, -1.5f, (sceneBuild.sceneSizeZ - 1) / 2f);
