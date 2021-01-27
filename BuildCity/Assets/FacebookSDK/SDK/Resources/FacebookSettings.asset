@@ -16,9 +16,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 0
+  - 164978728723249
   appLabels:
-  - App Name
+  - BuildCity
   cookie: 1
   logging: 1
   status: 1

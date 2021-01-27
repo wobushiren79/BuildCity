@@ -9,7 +9,7 @@ public class CameraControl : BaseMonoBehaviour
     private Touch oldTouch1;  //上次触摸点1(手指1)  
     private Touch oldTouch2;  //上次触摸点2(手指2)  
 
-    protected float speedForRotate = 10;
+    public float speedForRotate = 10;
     protected float speedForHorizontalMove = 1;
     protected float speedForVerticalMove = 1;
 
@@ -22,13 +22,12 @@ public class CameraControl : BaseMonoBehaviour
 #if UNITY_ANDROID || UNITY_IPHONE
         if (Input.touchCount <= 0)
                     return;
-#else
-
-#endif
-
         RayUtil.RayToScreenPoint(out bool isCollider, out RaycastHit hit);
         if (isCollider && hit.collider.GetComponent<BuildBase>())
             return;
+#else
+
+#endif
         //HandleForScale();
         //HandleForMove(true, true);
         HandleForRotation(true, true);
@@ -113,15 +112,11 @@ public class CameraControl : BaseMonoBehaviour
         {
              deltaposition = Input.GetTouch(0).deltaPosition;
 #else
-        if (Input.GetMouseButtonDown(1))
+        float offsetHorizontal = Input.GetAxis(InputInfo.Horizontal);
+        float offsetVertical = Input.GetAxis(InputInfo.Vertical);
+        if ((offsetHorizontal != 0 || offsetVertical != 0))
         {
-            oldMousePosition= Input.mousePosition;
-        }
-        if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            Vector3 newPosition= Input.mousePosition;
-            deltaposition = newPosition - oldMousePosition;
-            oldMousePosition = newPosition;
+            deltaposition = new Vector3(-offsetHorizontal * speedForRotate, -offsetVertical * speedForRotate, 0);
 #endif
 
             if (isOpenVertical && Math.Abs(deltaposition.y) > Math.Abs(deltaposition.x))
@@ -134,5 +129,4 @@ public class CameraControl : BaseMonoBehaviour
             }
         }
     }
-    protected Vector3 oldMousePosition = Vector3.zero;
 }

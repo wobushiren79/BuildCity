@@ -11,6 +11,7 @@ public class BuildControl : BaseMonoBehaviour
     public float timeForBuildDelay = 0;
     public float timeForDelayTouch = 0;
 
+    protected bool isBuild = false;
     private void Update()
     {
         if (buildMode == BuildControlModeEnum.Build)
@@ -57,6 +58,7 @@ public class BuildControl : BaseMonoBehaviour
             //点击到了UI
             if (CheckUtil.IsPointerUI())
                 return;
+            isBuild = true;
             timeForDelayTouch = 0.2f;
             CheckAndBuild();
         }
@@ -67,9 +69,14 @@ public class BuildControl : BaseMonoBehaviour
                 return;
             if (timeForDelayTouch > 0)
                 return;
+            if (!isBuild)
+                return;
             CheckAndBuild();
         }
-
+        if (Input.GetMouseButtonUp(0))
+        {
+            isBuild = false;
+        }
     }
 
     public void HandleForDemolition()
@@ -79,6 +86,7 @@ public class BuildControl : BaseMonoBehaviour
             //点击到了UI
             if (CheckUtil.IsPointerUI())
                 return;
+            isBuild = true;
             timeForDelayTouch = 0.2f;
             CheckAndDemolition();
         }
@@ -89,7 +97,13 @@ public class BuildControl : BaseMonoBehaviour
                 return;
             if (timeForDelayTouch > 0)
                 return;
+            if (!isBuild)
+                return;
             CheckAndDemolition();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isBuild = false;
         }
     }
 
