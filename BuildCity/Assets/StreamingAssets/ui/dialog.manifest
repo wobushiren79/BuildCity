@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+CRC: 3590534905
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 37bbadf21314eebc4e22276e7919c7d7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ec0b00e1d264c0c51570b7c0b29ea1ed
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8c5889dcb67e3a147868481234f26962, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 49dd5faedd65e6e4cad1936759c672ec, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/UI/Dialog/Setting.prefab
+Dependencies: []

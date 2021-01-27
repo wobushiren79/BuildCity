@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 1529948422
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: build/building/def
+      Dependencies: {}
+    Info_1:
+      Name: ui/ui
+      Dependencies: {}
+    Info_2:
+      Name: ui/dialog
+      Dependencies: {}
