@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ding02
-  m_Shader: {fileID: 4800000, guid: bc3d9a3be2794a3439da0fbcd5b3ab49, type: 3}
+  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -82,7 +82,7 @@ Material:
     - _BackBottomColor: {r: 0.8207547, g: 0.54992765, b: 0.12001601, a: 1}
     - _BackTopColor: {r: 0.8584906, g: 0.5807992, b: 0.1822268, a: 1}
     - _BottomColor: {r: 1, g: 0.33990148, b: 0, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.7830189, g: 0.48971272, b: 0.28439835, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FrontBottomColor: {r: 0.9803922, g: 0.8196079, b: 0.31764707, a: 1}
     - _FrontTopColor: {r: 0.9150943, g: 0.7804882, b: 0.5740922, a: 1}
